@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Simple Map</title>
+    <meta name="viewport" content="initial-scale=1.0">
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="leaflet/leaflet.css" />
+    <script src="leaflet/leaflet.js"></script>
+  </head>
+  <body>
+    <div id="macarte" style="width:545px; height:490px"></div>
+    <script type="text/javascript">
+      var carte = L.map('macarte').setView([43.1742784, 2.9992585], 14);
+      L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+          attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+          }).addTo(carte);
+          var marker = L.marker([43.1842770, 3.0030780]).addTo(carte);
+
+          var monIcone = L.icon({
+              iconUrl: 'leaflet/images/hache.png',
+              shadowUrl: '.png',
+              iconSize: [38, 38], // dimension de l’icone
+              shadowSize: [50, 64], // taille de l’ombre
+              iconAnchor: [0, 0], // point ou l’icône va se positionner
+              shadowAnchor: [4, 62], // même chose pour l’ombre
+              popupAnchor: [-3, -76] // point à partir duquel le pop-up devrait s’ouvrir relativement par rapport à iconAnchor
+              });
+          var marker = L.marker([43.1826498, 3.0029707], {icon: monIcone}).addTo(carte);
+
+
+          var monIcone2 = L.icon({
+              iconUrl: 'leaflet/images/beer.png',
+              shadowUrl: '.png',
+              iconSize: [35, 35], // dimension de l’icone
+              shadowSize: [50, 64], // taille de l’ombre
+              iconAnchor: [0, 0], // point ou l’icône va se positionner
+              shadowAnchor: [4, 62], // même chose pour l’ombre
+              popupAnchor: [-3, -76] // point à partir duquel le pop-up devrait s’ouvrir relativement par rapport à iconAnchor
+              });
+          var marker = L.marker([43.1663284, 2.9893022], {icon: monIcone2}).addTo(carte);
+    </script>
+  </body>
+</html>
